@@ -1,0 +1,3 @@
+[submodule "feather"]
+	path = feather
+	url = https://github.com/colebemis/feather.git
