@@ -1,0 +1,33 @@
+{
+  "name": "vue-feather-icon",
+  "version": "1.0.0",
+  "description": "Vue component for feather icon",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "event-stream": "^3.3.4",
+    "gulp-rename": "^1.2.2"
+  },
+  "scripts": {
+    "build": "node ./node_modules/gulp/bin/gulp.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mage3k/vue-feather-icon.git"
+  },
+  "keywords": [
+    "vue",
+    "feather",
+    "icon",
+    "svg"
+  ],
+  "author": "mage3k <loper.tt@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mage3k/vue-feather-icon/issues"
+  },
+  "homepage": "https://github.com/mage3k/vue-feather-icon#readme"
+}
