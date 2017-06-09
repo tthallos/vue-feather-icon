@@ -1,12 +1,10 @@
 {
   "name": "vue-feather-icon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vue component for feather icon",
   "main": "index.js",
-  "dependencies": {
-    "gulp": "^3.9.1"
-  },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "event-stream": "^3.3.4",
     "gulp-concat": "^2.6.1",
     "gulp-flatten": "^0.3.1",
