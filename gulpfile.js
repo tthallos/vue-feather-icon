@@ -24,7 +24,7 @@ gulp.task('components', () => {
   gulp.src('feather/icons/**/*.svg')
     .pipe(wrap((name, content) => {
       let c = content.replace(/\n/g, '')
-      return `  Vue.component('feather-${name}', '<template>${c}</template>')`
+      return `  Vue.component('feather-${name}', require('./components/${name}'))`
     }))
     .pipe(concat('index.js'))
     .pipe(wrap((filename, content) => `exports.install = function(Vue) {\n${content}\n}`))
@@ -43,4 +43,4 @@ gulp.task('component', () => {
     .pipe(gulp.dest('./components'))
 })
 
-gulp.task('default', ['components', 'component'])
+gulp.task('default', ['component', 'components'])
