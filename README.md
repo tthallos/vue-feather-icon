@@ -10,7 +10,7 @@ npm install vue-feather-icon
 
 ## usage
 
-#### global component
+### global component
 ```javascript
 const Vue = require('vue')
 const VueFeatherIcon = require('vue-feather-icon')
