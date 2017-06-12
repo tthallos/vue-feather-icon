@@ -18,9 +18,21 @@ const VueFeatherIcon = require('vue-feather-icon')
 Vue.use(VueFeatherIcon)
 ```
 
+```vue
+<tempalte>
+  <feather-activity></feather-activity>
+</tempalte>
+```
+
 
 ### local component
 
 ```javascript
 const ActivityIcon = require('vue-feather-icon/components/activity')
+```
+
+```vue
+<tempalte>
+  <activity-icon></activity-icon>
+</tempalte>
 ```
