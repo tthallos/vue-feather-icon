@@ -12,8 +12,9 @@ npm install vue-feather-icon
 
 ### global component
 ```javascript
-const Vue = require('vue')
-const VueFeatherIcon = require('vue-feather-icon')
+// main.js
+import Vue = from 'vue'
+import VueFeatherIcon from 'vue-feather-icon'
 
 Vue.use(VueFeatherIcon)
 ```
@@ -21,17 +22,25 @@ Vue.use(VueFeatherIcon)
 ```vue
 <tempalte>
   <feather-activity></feather-activity>
+  <!-- or -->
+  <feather-icon type="activity"></feather-icon>
 </tempalte>
 ```
 
 
 ### local component
 
-```javascript
-const ActivityIcon = require('vue-feather-icon/components/activity')
-```
-
 ```vue
+<script>
+  import { Activity } from 'vue-feather-icon'
+
+  export default {
+    components: {
+      ActivityIcon: Activity
+    }
+  }
+</script>
+
 <tempalte>
   <activity-icon></activity-icon>
 </tempalte>
