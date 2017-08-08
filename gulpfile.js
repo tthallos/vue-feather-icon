@@ -19,15 +19,29 @@ const wrap = function(inject) {
   })
 }
 
+const upCamelize = (str, separator = '-') => {
+  return str.split(separator).map((item) => {
+    return item.charAt(0).toUpperCase() + item.slice(1)
+  }).join('')
+}
+
+gulp.task('pia', () => {
+  gulp.src('feather/icons/**/*.svg')
+    .pipe(wrap((name, content) => {
+      return `exports.${upCamelize(name)} = require('./components/${name}.vue')`
+    }))
+    .pipe(concat('index.js'))
+    .pipe(wrap((filename, content) => `exports.install = require('./plugin.js')\n${content}`))
+    .pipe(gulp.dest('./'))
+})
 
 gulp.task('components', () => {
   gulp.src('feather/icons/**/*.svg')
     .pipe(wrap((name, content) => {
-      let c = content.replace(/\n/g, '')
-      return `  Vue.component('feather-${name}', require('./components/${name}'))`
+      return `  Vue.component('feather-${name}', require('./components/${name}.vue'))`
     }))
-    .pipe(concat('index.js'))
-    .pipe(wrap((filename, content) => `exports.install = function(Vue) {\n${content}\n}`))
+    .pipe(concat('plugin.js'))
+    .pipe(wrap((filename, content) => `module.exports = function(Vue) {\n  Vue.component('feather-icon', require('./components/index.vue'))\n${content}\n}`))
     .pipe(gulp.dest('./'))
 })
 
@@ -43,4 +57,4 @@ gulp.task('component', () => {
     .pipe(gulp.dest('./components'))
 })
 
-gulp.task('default', ['component', 'components'])
+gulp.task('default', ['component', 'components', 'pia'])
