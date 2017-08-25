@@ -20,11 +20,11 @@ Vue.use(VueFeatherIcon)
 ```
 
 ```vue
-<tempalte>
+<template>
   <feather-activity></feather-activity>
   <!-- or -->
   <feather-icon type="activity"></feather-icon>
-</tempalte>
+</template>
 ```
 
 
@@ -41,7 +41,7 @@ Vue.use(VueFeatherIcon)
   }
 </script>
 
-<tempalte>
+<template>
   <activity-icon></activity-icon>
-</tempalte>
+</template>
 ```
