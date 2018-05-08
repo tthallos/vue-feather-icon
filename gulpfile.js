@@ -26,7 +26,7 @@ const upCamelize = (str, separator = '-') => {
 }
 
 gulp.task('pia', () => {
-  gulp.src('feather/icons/**/*.svg')
+  gulp.src('feather/dist/icons/**/*.svg')
     .pipe(wrap((name, content) => {
       return `exports.${upCamelize(name)} = require('./components/${name}.vue')`
     }))
@@ -36,7 +36,7 @@ gulp.task('pia', () => {
 })
 
 gulp.task('typescript', () => {
-  gulp.src('feather/icons/**/*.svg')
+  gulp.src('feather/dist/icons/**/*.svg')
     .pipe(wrap((name, content) => {
       return `  export class ${upCamelize(name)} {}`
     }))
@@ -46,7 +46,7 @@ gulp.task('typescript', () => {
 })
 
 gulp.task('components', () => {
-  gulp.src('feather/icons/**/*.svg')
+  gulp.src('feather/dist/icons/**/*.svg')
     .pipe(wrap((name, content) => {
       return `  Vue.component('feather-${name}', require('./components/${name}.vue').default)`
     }))
@@ -56,9 +56,9 @@ gulp.task('components', () => {
 })
 
 gulp.task('component', () => {
-  gulp.src('feather/icons/**/*.svg')
+  gulp.src('feather/dist/icons/**/*.svg')
     .pipe(wrap((name, content) => {
-      return `<template>\n${content}</template>`
+      return `<template>\n${content}\n</template>`
     }))
     .pipe(rename({
       extname: '.vue'
