@@ -35,5 +35,8 @@
     "plugin.js",
     "components"
   ],
-  "homepage": "https://github.com/mage3k/vue-feather-icon#readme"
+  "homepage": "https://github.com/mage3k/vue-feather-icon#readme",
+  "dependencies": {
+    "vue": "^2.5.16"
+  }
 }

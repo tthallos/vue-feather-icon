@@ -35,13 +35,23 @@ gulp.task('pia', () => {
     .pipe(gulp.dest('./'))
 })
 
+gulp.task('typescript', () => {
+  gulp.src('feather/icons/**/*.svg')
+    .pipe(wrap((name, content) => {
+      return `  export class ${upCamelize(name)} {}`
+    }))
+    .pipe(concat('index.d.ts'))
+    .pipe(wrap((filename, content) => `import Vue from 'vue';\n\ndeclare module 'vue-feather-icon' {\n  export function install(): void;\n${content}\n}`))
+    .pipe(gulp.dest('./'))
+})
+
 gulp.task('components', () => {
   gulp.src('feather/icons/**/*.svg')
     .pipe(wrap((name, content) => {
-      return `  Vue.component('feather-${name}', require('./components/${name}.vue'))`
+      return `  Vue.component('feather-${name}', require('./components/${name}.vue').default)`
     }))
     .pipe(concat('plugin.js'))
-    .pipe(wrap((filename, content) => `module.exports = function(Vue) {\n  Vue.component('feather-icon', require('./components/index.vue'))\n${content}\n}`))
+    .pipe(wrap((filename, content) => `module.exports = function(Vue) {\n  Vue.component('feather-icon', require('./components/index.vue').default)\n${content}\n}`))
     .pipe(gulp.dest('./'))
 })
 
@@ -57,4 +67,4 @@ gulp.task('component', () => {
     .pipe(gulp.dest('./components'))
 })
 
-gulp.task('default', ['component', 'components', 'pia'])
+gulp.task('default', ['component', 'components', 'pia', 'typescript'])
