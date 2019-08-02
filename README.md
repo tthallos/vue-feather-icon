@@ -1,3 +1,5 @@
+Recommended [vue-feather-icons](https://github.com/egoist/vue-feather-icons) for your project
+
 # vue-feather-icon
 
 Vue component for [Feather](https://feathericons.com)
