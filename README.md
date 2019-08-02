@@ -1,4 +1,6 @@
-Recommended [vue-feather-icons](https://github.com/egoist/vue-feather-icons) for your project
+## This repo is no longer maintained
+
+Recommended [vue-feather-icons](https://github.com/egoist/vue-feather-icons) for your project instead.
 
 # vue-feather-icon
 
